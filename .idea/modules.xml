@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NaLIR.iml" filepath="$PROJECT_DIR$/NaLIR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nalir_github.iml" filepath="$PROJECT_DIR$/nalir_github.iml" />
     </modules>
   </component>
 </project>
