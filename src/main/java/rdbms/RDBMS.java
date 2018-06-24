@@ -18,10 +18,11 @@ public class RDBMS
 
 	public RDBMS(String database_name) throws Exception
 	{
-		String driver = "com.mysql.jdbc.Driver"; 
-		String db_url = "jdbc:mysql://127.0.0.1:3306/";
+		database_name = "mas";
+		String driver = "com.mysql.cj.jdbc.Driver";
+		String db_url = "jdbc:mysql://mysql:3306/";
 		String user = "root";
-		String password = null;
+		String password = "pass";
 		Class.forName(driver);
 		conn = DriverManager.getConnection(db_url, user, password);
 		
@@ -29,7 +30,7 @@ public class RDBMS
 		statement.execute("use " + database_name); 
 		loadHistory(database_name); 
 
-		schemaGraph = new SchemaGraph(database_name); 
+		schemaGraph = new SchemaGraph(database_name);
 	}
 	
 	public ArrayList<ArrayList<String>> conductSQL(String query)

@@ -16,9 +16,10 @@ import components.*;
 
 public class CommandInterface 
 {
-	LexicalizedParser lexiParser; 
-	RDBMS db; 
-	Document tokens; 
+	LexicalizedParser lexiParser;
+	 //RDBMS db;
+	RDBMS db = new RDBMS("mas");
+	Document tokens;
 	
 	Query query; 
 	public String feedback = ""; 
@@ -49,7 +50,7 @@ public class CommandInterface
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); 
     	DocumentBuilder builder = factory.newDocumentBuilder();
-		tokens = builder.parse(new File("src/main/java/zfiles/tokens.xml"));
+		tokens = builder.parse(new File("webapps/test2/zfiles/tokens.xml"));
 	}
 
 	public void executeCommand(String command) throws Exception
@@ -58,7 +59,7 @@ public class CommandInterface
 		
 		if(command.startsWith("#useDB") && command.length() > 7)
 		{
-			db = new RDBMS(command.substring(7)); 
+			db = new RDBMS(command.substring(7));
 			feedback = FeedbackGenerator.feedbackGenerate(db.history, query); 
 			query = null; 
 		}

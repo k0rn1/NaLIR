@@ -30,7 +30,9 @@ public class SchemaGraph
 	public SchemaGraph(String databaseName) throws IOException, ParseException
 	{
 		JSONParser parser = new JSONParser();
-		JSONArray jsonRelations = (JSONArray)parser.parse(BasicFunctions.readFile("../zfiles/" + databaseName + "Relations.json"));
+		System.out.println(System.getProperty("user.dir"));
+
+		JSONArray jsonRelations = (JSONArray)parser.parse(BasicFunctions.readFile("webapps/test2/zfiles/" + databaseName + "Relations.json"));
 		
 		for(int i = 0; i < jsonRelations.size(); i++)
 		{
@@ -78,7 +80,7 @@ public class SchemaGraph
 			}
 		}
 				
-		JSONArray jsonEdges = (JSONArray)parser.parse(BasicFunctions.readFile("../zfiles/" + databaseName + "Edges.json"));
+		JSONArray jsonEdges = (JSONArray)parser.parse(BasicFunctions.readFile("webapps/test2/zfiles/" + databaseName + "Edges.json"));
 
 		for(int i = 0; i < jsonEdges.size(); i++)
 		{

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+<role rolename="admin-gui"/>
+<role rolename="admin-script"/>
+<role rolename="tomcat"/>
+<user  username="tomcat"  password="tomcat" roles="tomcat"/>
+
+<user  username="admin"  password="admin" roles="admin-gui"/>
+
+<user  username="adminscript"  password="adminscrip" roles="admin-script"/>
+
+<user  username="tomcat"  password="s3cret" roles="manager-gui"/>
+<user  username="status"  password="status" roles="manager-status"/>
+
+<user  username="both"    password="both"   roles="manager-gui,manager-status"/>
+
+<user  username="script"  password="script" roles="manager-script"/>
+<user  username="jmx"     password="jmx"    roles="manager-jmx"/>

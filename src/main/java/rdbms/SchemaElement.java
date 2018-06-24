@@ -53,13 +53,18 @@ public class SchemaElement implements Serializable
 	
 	public MappedSchemaElement isTextExist(String value, Connection conn) throws Exception 
 	{
+		int size = 0;
 		Statement statement = conn.createStatement(); 
-		String numberSQL = "SELECT *" + " FROM size WHERE size.relation = '" + this.relation.name + "'"; 
-//        System.out.println(numberSQL);
-		ResultSet number = statement.executeQuery(numberSQL); 
-		number.next(); 
-		int size = number.getInt(1); 
-		
+		String numberSQL = "SELECT *" + " FROM size WHERE size.relation = '" + this.relation.name + "'";
+        try {
+			ResultSet number = statement.executeQuery(numberSQL);
+			number.next();
+			size = number.getInt(1);
+		}
+		catch (Exception ex){
+
+		}
+
 		String SQL = ""; 
 		if(size < 2000)
 		{

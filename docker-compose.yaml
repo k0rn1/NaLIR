@@ -1,0 +1,24 @@
+version: "2.2"
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+     - 3306:3306
+    volumes:
+      - ./sql:/tmp/sql
+  tomcat:
+    container_name: tomcat
+    image: tomcat:latest
+    volumes:
+      - ./out/artifacts/test2:/usr/local/tomcat/webapps/test2
+      - ./src/main/java/zfiles:/usr/local/tomcat/webapps/test2/WEB-INF/classes/zfiles
+      - ./src/main/java/zfiles:/usr/local/tomcat/webapps/test2/zfiles
+      #- ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      #- ./tomcat/context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml
+    ports:
+      - 8080:8080
+    links:
+      - "mysql"

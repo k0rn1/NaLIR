@@ -1,6 +1,23 @@
 ## Running NaLIR 
 
-### Downloads
+Download this [file](https://s3.amazonaws.com/umdb-users/cjbaik/mas.sql) and place it under */sql*
+
+Run mysql with docker: 
+
+`docker-compose up`
+
+To import the dumb run (and wait): 
+
+`docker exec -i mysql-container mysql -uroot -ppass mas < mas.sql`
+
+
+and
+
+`docker exec -i mysql-container mysql -uroot -ppass mas < setup_mas.sql`
+
+
+### Original Readme
+#### Downloads
 
 First, download necessary jars from:
 
@@ -16,7 +33,7 @@ and load it into a running MySQL database on your machine.
 
 Also, load `setup_mas.sql` in the root project folder into MySQL as well, which adds some additional features to the database that are needed to execute it.
 
-### Configuration
+#### Configuration
 
 There are some hard-coded paths (to schema information and the like) in the original code that need to be modified. Executing it will give you the errors that will point you in the right direction, but at the very least, the following should be modified for your local machine:
 
@@ -28,7 +45,7 @@ There are some hard-coded paths (to schema information and the like) in the orig
     * Line 33: path to corresponding file on your machine
     * Line 81: path to corresponding file on your machine
 
-### Execute
+#### Execute
 
 You can either:
 * Spin up an Apache Tomcat Server (the configuration should be setup for IntelliJ IDEA Ultimate Edition currently) and head to `/nalir.jsp` in your browser at the right port
@@ -37,6 +54,6 @@ You can either:
     * `#query return me the homepage of PVLDB` - run a query
 * Execute `Experiments.java` with some modification to run your tests
 
-## Questions?
+### Questions?
 
 Contact cjbaik at umich dot edu
