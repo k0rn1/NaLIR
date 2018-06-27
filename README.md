@@ -6,6 +6,13 @@ Run mysql with docker:
 
 `docker-compose up`
 
+Create the database:
+
+
+`docker exec -i mysql-container mysql -uroot -ppass`
+
+`create database mas;`
+
 To import the dumb run (and wait): 
 
 `docker exec -i mysql-container mysql -uroot -ppass mas < mas.sql`
